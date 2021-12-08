@@ -1,61 +1,57 @@
-html,body{
+html, body {
   height: 100%;
 }
 
-*{
+* {
   box-sizing: border-box;
 }
 
-#app{
+#app {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
-  grid-template-rows: repeat(2,1fr);
-  grid-template-areas: 
-  "html css"
-  "js preview";
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    "html css"
+    "js preview";
   height: 100%;
 }
 
-#app>div{
+#app>div {
   background-color: #0A0E14;
 }
 
 #app>div,
-#app>iframe{
+#app>iframe {
   border: 1px solid white;
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 50vw;
+  height: 50vh;
 }
 
-.html{
+.CodeMirror {
+  overflow-wrap: break-word;
+}
+
+
+.html {
   grid-area: html;
 }
 
-.css{
+.css {
   grid-area: css;
 }
 
-.js{
+.js {
   grid-area: js;
 }
 
-.preview{
+.preview {
   border: none;
   grid-area: preview;
 }
 
-@media (max-width: 900px) {
-  #app{
-    grid-template-rows: repeat(3,1fr);
-    grid-template-areas: 
-    "html preview"
-    "css preview"
-    "js preview";
-  }
-}
 
-.techno::after{
+.techno::after {
   content: '';
   position: absolute;
   height: 30px;
@@ -67,12 +63,62 @@ html,body{
   color: rgb(133, 128, 128);
 }
 
-.html::after{
+.html::after {
   background-image: url(./assets/html.png);
 }
-.css::after{
+
+.css::after {
   background-image: url(./assets/css.png);
 }
-.js::after{
+
+.js::after {
   background-image: url(./assets/js.png);
+}
+
+
+.CodeMirror-scroll {
+  position: relative;
+}
+
+.CodeMirror-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.CodeMirror-hscrollbar ::-webkit-scrollbar {
+  height: 10px;
+  width: 5px;
+}
+
+.CodeMirror-scroll ::-webkit-scrollbar-button {
+  background-color: red;
+}
+
+.CodeMirror-scroll ::-webkit-scrollbar-corner {
+  background-color: blue;
+}
+
+.CodeMirror-scroll ::-webkit-scrollbar-thumb {
+  background-color: green;
+}
+
+.CodeMirror-scroll ::-webkit-scrollbar-track {
+  background-color: green;
+}
+
+@media (max-width: 900px) {
+  #app {
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas:
+      "html preview"
+      "css preview"
+      "js preview";
+  }
+
+  .techno {
+    height: 33.33vh !important;
+  }
+
+  #app>iframe {
+    height: 100vh;
+  }
 }
